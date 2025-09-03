@@ -1,61 +1,64 @@
+import { StatusBadge } from "./status-badge";
+import { StatsGrid } from "./stats-grid";
+
 export function Hero() {
+  const stats = [
+    { label: "Years", value: "7+" },
+    { label: "Projects", value: "40+" },
+    { label: "Activation", value: "+18%" },
+    { label: "Time‑to‑task", value: "-32%" }
+  ];
+
   return (
-    <section className="relative">
-      <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-        <div className="inline-flex items-center gap-2 border border-black px-3 py-1 text-xs uppercase tracking-wide">
-          <span className="h-2 w-2 rounded-full bg-black" aria-hidden />
-          Available for freelance Q4
+    <section className="relative bg-neutral-50">
+      <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <StatusBadge className="mb-6">
+            Available for freelance Q4
+          </StatusBadge>
+
+          <h1 className="text-balance text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-black">
+            Build Digital Experiences
+            <br />
+            That Drive Results
+          </h1>
+          
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-neutral-600 leading-relaxed mb-8">
+            We're a creative digital agency helping brands stand out through tailored web design, branding, and 
+            digital strategies. Let's turn your vision into a powerful online presence.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <a
+              href="/contact"
+              className="inline-flex items-center px-8 py-4 bg-black text-white font-semibold hover:opacity-90 transition-opacity"
+            >
+              Get a Free Consultation
+            </a>
+          </div>
+
+          {/* Rating */}
+          <div className="flex items-center justify-center gap-2 text-sm text-neutral-600">
+            <div className="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="text-yellow-400">★</span>
+              ))}
+            </div>
+            <span className="font-semibold">5.0</span>
+            <span>Based on our customer review</span>
+          </div>
         </div>
-
-        <h1 className="text-balance text-4xl md:text-6xl font-semibold leading-tight mt-4">
-          UI/UX Designer crafting clear, usable, and elegant interfaces.
-        </h1>
-        <p className="mt-4 max-w-2xl text-neutral-600 leading-relaxed">
-          Evidence-driven design, system thinking, and meticulous attention to detail. I help products feel effortless.
-        </p>
-
-        <div className="mt-8 flex items-center gap-4">
-          <a
-            href="/work"
-            className="inline-flex items-center px-5 py-2.5 border border-black bg-black text-white hover:opacity-90"
-          >
-            View Work
-          </a>
-          <a
-            href="/contact"
-            className="inline-flex items-center px-5 py-2.5 border border-black text-black hover:bg-black hover:text-white"
-          >
-            Get in Touch
-          </a>
-        </div>
-
-        {/* Impact stats */}
-        <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="border border-neutral-200 p-4">
-            <dt className="text-xs uppercase tracking-wide text-neutral-600">Years</dt>
-            <dd className="text-2xl font-semibold">7+</dd>
-          </div>
-          <div className="border border-neutral-200 p-4">
-            <dt className="text-xs uppercase tracking-wide text-neutral-600">Projects</dt>
-            <dd className="text-2xl font-semibold">40+</dd>
-          </div>
-          <div className="border border-neutral-200 p-4">
-            <dt className="text-xs uppercase tracking-wide text-neutral-600">Activation</dt>
-            <dd className="text-2xl font-semibold">+18%</dd>
-          </div>
-          <div className="border border-neutral-200 p-4">
-            <dt className="text-xs uppercase tracking-wide text-neutral-600">Time‑to‑task</dt>
-            <dd className="text-2xl font-semibold">-32%</dd>
-          </div>
-        </dl>
+        {/* Stats Section */}
+        <StatsGrid stats={stats} className="mt-16" />
       </div>
 
-      {/* subtle shard */}
+      {/* Decorative bottom shard */}
       <div
         aria-hidden="true"
         className="h-8 md:h-10 bg-black"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 65%, 0 100%)" }}
       />
     </section>
-  )
+  );
 }
