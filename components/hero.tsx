@@ -2,13 +2,22 @@ import { StatusBadge } from "./status-badge";
 import { StatsGrid } from "./stats-grid";
 
 export function Hero() {
-  const stats = [
-    { label: "Years", value: "7+" },
-    { label: "Projects", value: "40+" },
-    { label: "Activation", value: "+18%" },
-    { label: "Time‑to‑task", value: "-32%" }
-  ];
-
+   {/* SEO: Structured Data for Person/Organization */}
+   <script
+   type="application/ld+json"
+   dangerouslySetInnerHTML={{
+     __html: JSON.stringify({
+       "@context": "https://schema.org",
+       "@type": "Person",
+       "name": "UI/UX Designer",
+       "jobTitle": "UI/UX Designer & Digital Product Strategist",
+       "description": "I help brands and startups transform ideas into functional, scalable, and user-friendly digital products. From strategy to polished design, I create experiences that deliver results.",
+       "url": typeof window !== 'undefined' ? window.location.origin : '',
+       "sameAs": [],
+       "knowsAbout": ["UI Design", "UX Design", "Digital Strategy", "Product Design", "User Experience"]
+     })
+   }}
+ />
   return (
     <section className="relative bg-neutral-50">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-54">
@@ -32,7 +41,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <a
               href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-black text-white font-semibold hover:opacity-90 transition-opacity"
+              className="inline-flex items-center rounded-full px-8 py-4 bg-black text-white font-semibold"
             >
               Let’s Create
             </a>
